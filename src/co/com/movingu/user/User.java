@@ -28,4 +28,11 @@ public abstract class User {
     public String getDni() {
         return this.dni;
     }
+    public boolean getBlocked() {
+        return this.blocked;
+    }
+
+    public boolean getTicketOn() {
+        return this.ticketOn;
+    }
 }
