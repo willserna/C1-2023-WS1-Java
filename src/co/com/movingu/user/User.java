@@ -25,6 +25,7 @@ public abstract class User {
     public abstract void statusMsg();
 
 
-
-
+    public String getDni() {
+        return this.dni;
+    }
 }
