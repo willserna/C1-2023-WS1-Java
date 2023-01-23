@@ -4,6 +4,10 @@ package co.com.movingu.vehicle;
 public abstract class Vehicle implements Loanable{
     private boolean available;
 
+    private int code;
+
+    private String color;
+
     public Vehicle(boolean available) {
         this.available = available;
     }
