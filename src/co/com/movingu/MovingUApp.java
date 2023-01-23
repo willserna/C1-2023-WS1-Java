@@ -1,22 +1,26 @@
 package co.com.movingu;
 
 import co.com.movingu.ticket.Ticket;
+import co.com.movingu.user.Student;
+import co.com.movingu.user.Trainer;
 import co.com.movingu.user.User;
+import co.com.movingu.vehicle.Scooter;
 import co.com.movingu.vehicle.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MovingUApp {
+    static List<User> users = new ArrayList<>(){{
+        add(new Student("0976152443", "Carolina Montoya", 24, "201547896", "FIEC"));
+        add(new Trainer("0976152443", "Washington Pesantez", 36, "lecturer"));
 
+
+    }};
     public static void main(String[] args) {
         //Lists that contains data related to the WS
-        List<User> users = new ArrayList<>(){{
-            //add(new Student("Carolina Montoya", 24, "0976152443", "201547896"));
-            //add(new Trainer("Washington Velásquez", 36, "0976159993", "Lecturer"));
-            //add(new Student("Ariana Vélez", 18, "0911152443", "202047800"));
 
-        }};
 
         List<Vehicle> vehicles= new ArrayList<>(){{
             //add(new Bicycle("B-001","red",true, true, "M"));
@@ -52,6 +56,22 @@ public class MovingUApp {
         System.out.println("3. Pay a ticket");
         System.out.println("4. Check availability");
         System.out.println("5. Exit");
+    }
+
+    public static void registerUser(){
+        Scanner sc = new Scanner(System.in);
+        //Ask the commom data: DNI, Name, age.
+        System.out.print("User is: Student (S) / Trainer (T)");
+        String type = sc.nextLine();
+        switch (type){
+            case "S":
+                // Ask the college DNI and he faculty
+                //create the student object
+                User s = new Student("0976152443", "Carolina Montoya", 24, "201547896", "FIEC");
+                users.add(s);
+                //Display a message: User was registered
+                break;
+        }
     }
 
 }
