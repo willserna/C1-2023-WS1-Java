@@ -6,18 +6,28 @@ import co.com.movingu.user.Trainer;
 import co.com.movingu.user.User;
 import co.com.movingu.vehicle.Vehicle;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class MovingUApp {
-    static List<User> users = new ArrayList<>(){{
-        add(new Student("0976152443", "Carolina Montoya", 24, "201547896", "FIEC"));
-        add(new Trainer("0976152443", "Washington Pesantez", 36, "lecturer"));
-
+    static LocalDateTime t = LocalDateTime.now();
+    static LocalDateTime t1 = t.plusDays(1);
+    static List<User> users = new ArrayList<>() {
+        {
+            add(new Student("0976152443", "Carolina Montoya", 24, "201547896", "FIEC"));
+            add(new Trainer("0976152443", "Washington Pesantez", 36, "lecturer"));
+        }
+    };
+    static List<Ticket> tickets = new ArrayList<>() {{
+        add(new Ticket("T-001", t, t1, "OK", true, 0));
+        add(new Ticket("T-002", t, t1, "OK", true, 0));
+        //add(new Ticket());
 
     }};
-    public static void main(String[] args) {
+
+    public static void main() {
         //Lists that contains data related to the WS
 
 
@@ -35,12 +45,9 @@ public class MovingUApp {
 
         }};
 
-        List<Ticket> tickets = new ArrayList<>(){{
-            //add(new Ticket());
-            //add(new Ticket());
-            //add(new Ticket());
 
-        }};
+
+
 
         //TO DO: Implement the necessary logic to make the menu work
         menu();
@@ -98,6 +105,7 @@ public class MovingUApp {
                 users.add(s);
                 //Display a message: User was registered
                 System.out.print("User registered");
+
                 break;
 
             case "T":
@@ -110,9 +118,56 @@ public class MovingUApp {
                 users.add(t);
                 //Display a message: User was registered
                 System.out.print("User registered");
+                break;
 
         }
     }
-    
+    public static void borrowReturn(){
+        System.out.print("Will you borrow (1) or will you return (2) a vehicle?: ");
+        Scanner sc = new Scanner(System.in);
+        String option = sc.nextLine();
+        switch (option) {
+            case "1":
+                System.out.print("Enter the User DNI: ");
+                String userDni = sc.nextLine();
+                //Search for User in array
+                for (User user: users) {
+                    if (user.getDni().equals(userDni)) {
+                        if (user.getBlocked() || user.getTicketOn()){
+                           user.statusMsg();
+                           break;
+                        }
+                        else {
+                            System.out.println("What kind of vehicle do you want?");
+                            System.out.println("1. Bicycle");
+                            System.out.println("2. Scooter");
+                            String vehicle = sc.nextLine();
+                            if (vehicle == "1"){
+                                if (Bicycle !=0){
 
-}}
+                                }
+                            }
+
+                    }
+
+                }
+                }
+        }
+
+}
+    public static void payTicket(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Ticket number: ");
+        String ticketId = sc.nextLine();
+        for (Ticket Ticket: tickets){
+            if (Ticket.getId().equals(ticketId)){
+                Ticket.setStatus("OK");
+                break;
+            }
+        }
+
+
+        //Search for User in array
+
+}
+}
