@@ -11,10 +11,9 @@ public class Ticket {
     protected LocalDateTime timeEnd;
     protected String status ;
     protected boolean helmet;
+    protected int debt;
 
-    protected float debt;
-
-    private Ticket(String id, LocalDateTime timeStart, LocalDateTime timeEnd, String status, boolean helmet, float debt) {
+    public Ticket(String id, LocalDateTime timeStart, LocalDateTime timeEnd, String status, boolean helmet, int debt) {
         this.id = id;
         this.timeStart = timeStart;
         this.timeEnd = timeEnd;
@@ -39,6 +38,10 @@ public class Ticket {
     public String setStatus(String status) {
         this.status = status;
         return status;
+    }
+    public int setDebt(int money) {
+        this.debt = money;
+        return debt;
     }
 }
 
