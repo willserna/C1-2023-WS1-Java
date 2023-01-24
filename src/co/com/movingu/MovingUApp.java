@@ -4,6 +4,8 @@ import co.com.movingu.ticket.Ticket;
 import co.com.movingu.user.Student;
 import co.com.movingu.user.Trainer;
 import co.com.movingu.user.User;
+import co.com.movingu.vehicle.Bicycle;
+import co.com.movingu.vehicle.Scooter;
 import co.com.movingu.vehicle.Vehicle;
 
 import java.time.LocalDateTime;
@@ -14,6 +16,7 @@ import java.util.Scanner;
 public class MovingUApp {
     static LocalDateTime t = LocalDateTime.now();
     static LocalDateTime t1 = t.plusDays(1);
+    static int fl =1;
     static List<User> users = new ArrayList<>() {
         {
             add(new Student("0976152443", "Carolina Montoya", 24, "201547896", "FIEC"));
@@ -26,31 +29,34 @@ public class MovingUApp {
         //add(new Ticket());
 
     }};
+    static List<Vehicle> vehicles= new ArrayList<>(){{
+        add(new Bicycle(true, "B-001","red", true, "M"));
+        add(new Bicycle(false,"B-002","blue", false, "M"));
+        //add(new Bicycle("B-003","red",true, true, "R"));
+        //add(new Bicycle("B-004","green",false, true, "R"));
+        //add(new Bicycle("B-005","grey",true, true, "M"));
+        add(new Scooter(false,"S-001","black", true, 20));
+        add(new Scooter(true,"S-002","blue", true, 50));
+        //add(new Scooter("S-003","grey",true, true, 80));
+        //add(new Scooter("S-004","grey",true, false, 50));
+        //add(new Scooter("S-005","black",false, false, 50));
 
-    public static void main() {
+    }};
+    public static void main(String[] args) {
         //Lists that contains data related to the WS
 
 
-        List<Vehicle> vehicles= new ArrayList<>(){{
-            //add(new Bicycle("B-001","red",true, true, "M"));
-            //add(new Bicycle("B-002","blue",false, false, "M"));
-            //add(new Bicycle("B-003","red",true, true, "R"));
-            //add(new Bicycle("B-004","green",false, true, "R"));
-            //add(new Bicycle("B-005","grey",true, true, "M"));
-            //add(new Scooter("S-001","black",false, true, 20));
-            //add(new Scooter("S-002","blue",true, true, 50));
-            //add(new Scooter("S-003","grey",true, true, 80));
-            //add(new Scooter("S-004","grey",true, false, 50));
-            //add(new Scooter("S-005","black",false, false, 50));
 
-        }};
 
 
 
 
 
         //TO DO: Implement the necessary logic to make the menu work
-        menu();
+        while (fl != 0){
+            menu();
+        }
+
 
 
     }
@@ -78,6 +84,8 @@ public class MovingUApp {
                 checkAvailability();
                 break;
             case "5":
+                fl = 0;
+                break;
         }
     }
 
@@ -105,14 +113,13 @@ public class MovingUApp {
                 users.add(s);
                 //Display a message: User was registered
                 System.out.print("User registered");
-
                 break;
 
             case "T":
                 // Ask if Trainer is Lecturer or Professor
-                System.out.print("Are you a Lecturer(1) or Professor?(2): [1/2]");
-                int trainerType = Integer.parseInt(sc.nextLine());
-                category = ((trainerType == 1) ? ("Lecturer") : ("Professor"));
+                System.out.print("Are you a Lecturer(L) or Professor?(P): [L/P]");
+                String trainerType = sc.nextLine();
+                category = ((trainerType == "L") ? ("Lecturer") : ("Professor"));
                 //create the trainer object
                 User t = new Trainer(dni, name, age, category);
                 users.add(t);
@@ -143,7 +150,7 @@ public class MovingUApp {
                             System.out.println("2. Scooter");
                             String vehicle = sc.nextLine();
                             if (vehicle == "1"){
-                                if (Bicycle !=0){
+                                
 
                                 }
                             }
@@ -154,7 +161,7 @@ public class MovingUApp {
                 }
         }
 
-}
+
     public static void payTicket(){
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Ticket number: ");
@@ -169,5 +176,8 @@ public class MovingUApp {
 
         //Search for User in array
 
+}
+    public static void checkAvailability(){
+        Scanner sc = new Scanner(System.in);
 }
 }
