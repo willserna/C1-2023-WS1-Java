@@ -24,6 +24,9 @@ public class Ticket {
 
 
 
+    public String getId() {
+        return id;
+    }
     public String setId(int count) {
 
         String str = String.valueOf(count);
