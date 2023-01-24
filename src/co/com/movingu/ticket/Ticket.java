@@ -12,14 +12,18 @@ public class Ticket {
     protected String status ;
     protected boolean helmet;
     protected int debt;
+    protected String vehicle;
+    protected String user;
 
-    public Ticket(String id, LocalDateTime timeStart, LocalDateTime timeEnd, String status, boolean helmet, int debt) {
+    public Ticket(String id, LocalDateTime timeStart, LocalDateTime timeEnd, String status, boolean helmet, int debt, String vehicle, String user) {
         this.id = id;
         this.timeStart = timeStart;
         this.timeEnd = timeEnd;
         this.status = status;
         this.helmet = helmet;
         this.debt = debt;
+        this.vehicle = vehicle;
+        this.user = user;
     }
 
 
@@ -33,10 +37,10 @@ public class Ticket {
         this.id = str1 + str;
         return id;
     }
-    public LocalDateTime setTimeStart(LocalDateTime t) {
+    public LocalDateTime setTimeEnd(LocalDateTime t) {
 
-        timeStart = t;
-        return timeStart;
+        timeEnd = t;
+        return timeEnd;
     }
     public String setStatus(String status) {
         this.status = status;
@@ -45,6 +49,22 @@ public class Ticket {
     public int setDebt(int money) {
         this.debt = money;
         return debt;
+    }
+
+    public int getDebt() {
+        return debt;
+    }
+
+    public void setVehicle(String vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public String getVehicle() {
+        return vehicle;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 }
 

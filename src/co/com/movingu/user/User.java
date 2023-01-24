@@ -35,4 +35,8 @@ public abstract class User {
     public boolean getTicketOn() {
         return this.ticketOn;
     }
+
+    public String getName() {
+        return name;
+    }
 }
